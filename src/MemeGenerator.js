@@ -6,7 +6,7 @@ class MemeGenerator extends Component {
     this.state = {
       topText: "",
       bottomText: "",
-      randomImg: "",
+      randomImg: "http://i.imgflip.com/1bij.jpg",
       allMemeImgs: [],
     };
     this.handleChange = this.handleChange.bind(this);
