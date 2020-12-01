@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 class MemeGenerator extends Component {
   constructor() {
@@ -9,11 +8,12 @@ class MemeGenerator extends Component {
       bottomText: "",
       randomImg: "http://i.imgflip.com/1bij.jpg",
       allMemeImgs: [],
+      editedMemeImg: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSave = this.handleSave.bind(this);
-
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount() {
@@ -41,19 +41,21 @@ class MemeGenerator extends Component {
     fetch("http://localhost:3000/api/memes", {
       method: "post",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         top_text: this.state.topText,
         bottom_text: this.state.bottomText,
-        img_url: this.state.randomImg
-      })
-    })
-      .then(response => console.log(response))
+        img_url: this.state.randomImg,
+      }),
+    }).then((response) => console.log(response));
   }
 
+  handleEdit(event) {
+    console.log("hello");
 
-
+    const editMeme = this.state.editedMemeImg;
+  }
 
   render() {
     return (
@@ -74,10 +76,9 @@ class MemeGenerator extends Component {
             onChange={this.handleChange}
           />
           <button>Generate</button>
-
-
         </form>
         <button onClick={this.handleSave}>Save</button>
+        <button onClick={this.handleEdit}>Edit</button>
 
         <div className="meme">
           <img src={this.state.randomImg} alt="" />
