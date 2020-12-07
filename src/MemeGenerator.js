@@ -8,7 +8,7 @@ class MemeGenerator extends Component {
       bottomText: "",
       randomImg: "http://i.imgflip.com/1bij.jpg",
       allMemeImgs: [],
-      editedMemeImg: [],
+      editedMemeImg: [], // do i need this?
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -52,7 +52,7 @@ class MemeGenerator extends Component {
   }
 
   handleEdit(event) {
-    console.log("hello");
+    console.log("edit");
 
     const editMeme = this.state.editedMemeImg;
   }
