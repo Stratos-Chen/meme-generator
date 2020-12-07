@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-const TEST_MEME = 1;
+const TEST_MEME = 5;
 
 class EditMeme extends Component {
   constructor() {
@@ -9,7 +9,7 @@ class EditMeme extends Component {
       bottom_text: "",
       img_url: "",
     };
-    // this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -24,10 +24,10 @@ class EditMeme extends Component {
         this.setState({ ...meme });
       });
   }
-  // handleChange(event) {
-  //   const { name, value } = event.target;
-  //   this.setState({ [name]: value });
-  // }
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
 
   // handleSubmit(event) {
   //   event.preventDefault();

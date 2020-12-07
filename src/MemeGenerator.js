@@ -13,7 +13,6 @@ class MemeGenerator extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSave = this.handleSave.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount() {
@@ -51,12 +50,6 @@ class MemeGenerator extends Component {
     }).then((response) => console.log(response));
   }
 
-  handleEdit(event) {
-    console.log("edit");
-
-    const editMeme = this.state.editedMemeImg;
-  }
-
   render() {
     return (
       <div>
@@ -78,7 +71,6 @@ class MemeGenerator extends Component {
           <button>Generate</button>
         </form>
         <button onClick={this.handleSave}>Save</button>
-        <button onClick={this.handleEdit}>Edit</button>
 
         <div className="meme">
           <img src={this.state.randomImg} alt="" />
