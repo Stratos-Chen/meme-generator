@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import axios from "axios";
 
 class MemeGenerator extends Component {
   constructor() {
@@ -9,6 +8,7 @@ class MemeGenerator extends Component {
       bottomText: "",
       randomImg: "http://i.imgflip.com/1bij.jpg",
       allMemeImgs: [],
+      editedMemeImg: [], // do i need this?
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
