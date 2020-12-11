@@ -27,9 +27,9 @@ class MemeList extends Component {
       <div>
         <header>List of Created Memes</header>
         {this.state.createdMemes.map((meme) => (
-          <div key={meme.id}>
-            <p>{meme.top_text}</p>
-            <p>{meme.bottom_text}</p>
+          <div className="meme" key={meme.id}>
+            <h2 className="top">{meme.top_text}</h2>
+            <h2 className="bottom">{meme.bottom_text}</h2>
             <img src={meme.img_url} alt={meme.img_url} />
           </div>
         ))}

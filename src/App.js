@@ -7,6 +7,8 @@ import EditMeme from "./EditMeme";
 import MemeList from "./MemeList";
 import Navigation from "./Navigation";
 import TestPage from "./components/TestPage";
+import "./style.css"
+
 // import { render } from "@testing-library/react";
 
 class App extends Component {
