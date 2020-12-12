@@ -7,7 +7,7 @@ import EditMeme from "./EditMeme";
 import MemeList from "./MemeList";
 import Navigation from "./Navigation";
 import TestPage from "./components/TestPage";
-import "./style.css"
+import "./style.css";
 
 // import { render } from "@testing-library/react";
 
@@ -20,7 +20,7 @@ class App extends Component {
           <Navigation />
           <Switch>
             <Route path="/memegenerator" component={MemeGenerator} />
-            <Route path="/editmeme" component={EditMeme} />
+            <Route path="/editmeme/:id" component={EditMeme} />
             <Route path="/memelist" component={MemeList} />
             <Route path="/testpage" component={TestPage} />
           </Switch>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class MemeList extends Component {
   constructor() {
@@ -31,6 +32,8 @@ class MemeList extends Component {
             <h2 className="top">{meme.top_text}</h2>
             <h2 className="bottom">{meme.bottom_text}</h2>
             <img src={meme.img_url} alt={meme.img_url} />
+            <br />
+            <Link to={`/editmeme/${meme.id}`}>Edit Meme</Link>
           </div>
         ))}
       </div>

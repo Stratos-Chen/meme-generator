@@ -1,22 +1,21 @@
 import React, { Component } from "react";
-const TEST_MEME = 5;
 
 class EditMeme extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.routeParam = props.match.params.id;
     this.state = {
       top_text: "",
       bottom_text: "",
       img_url: "",
     };
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/api/memes/${TEST_MEME}`)
+    fetch(`http://localhost:3000/api/memes/${this.props.match.params.id}`)
       .then((response) => response.json())
       .then((response) => {
         const meme = response;
@@ -28,13 +27,6 @@ class EditMeme extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
-
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   const randNum = Math.floor(Math.random() * this.state.allMemeImgs.length);
-  //   const randMemeImg = this.state.allMemeImgs[randNum].url;
-  //   this.setState({ randomImg: randMemeImg });
-  // }
 
   handleSave(event) {
     fetch("http://localhost:3000/api/memes", {
@@ -51,9 +43,7 @@ class EditMeme extends Component {
   }
 
   handleEdit(event) {
-    console.log("edit");
-    // this.route.params
-    fetch(`http://localhost:3000/api/memes/${TEST_MEME}`, {
+    fetch(`http://localhost:3000/api/memes/${this.props.match.params.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -86,8 +76,10 @@ class EditMeme extends Component {
             value={this.state.bottom_text}
             onChange={this.handleChange}
           />
+          <button className="save-button" onClick={this.handleEdit}>
+            Save
+          </button>
         </form>
-        <button onClick={this.handleEdit}>Edit</button>
 
         <div className="meme">
           <img src={this.state.img_url} alt="" />
